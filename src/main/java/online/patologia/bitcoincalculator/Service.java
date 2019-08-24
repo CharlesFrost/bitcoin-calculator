@@ -39,6 +39,7 @@ public class Service {
         public String calculate(String type, String amount) throws IOException{
         String result;
         String newAmount=amount;
+        newAmount = newAmount.replace(" ","");
 
             if (amount.contains(",") && amount.contains(".")) {
              newAmount = newAmount.replace(",","");
@@ -46,12 +47,11 @@ public class Service {
             if (amount.contains(",")) {
              newAmount = newAmount.replace(",",".");
             }
-            newAmount=newAmount.trim();
             if (!newAmount.matches("^(?!0*(\\.0+)?$)(\\d+|\\d*\\.\\d+)$")) {
                 return "Niepoprawna liczba";
             }
 
-            newAmount = newAmount.replace(" ","");
+
 
             if (type.equals("fromBTCtoPLN")) {
                 Double d = (getEur()*getBtc())*Double.parseDouble(newAmount);
