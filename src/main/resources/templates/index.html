@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <form method="POST" action="/">
+        <p th:if="${result}" th:text="${result}"></p>
+        <label for="summ">Ilość:</label>
+        <input type="text" id="summ" name="summ"><br>
+        <label for="type">Typ:</label>
+        <select id="type" name="type">
+            <option name="fromBTCtoPLN" value="fromBTCtoPLN">Z bitcoina na PLN</option>
+            <option name="fromPLNtoBTC" value="fromPLNtoBTC">Z PLN na bitcoin</option>
+        </select>
+        <button type="submit">Oblicz</button>
+    </form>
+</body>
+</html>
